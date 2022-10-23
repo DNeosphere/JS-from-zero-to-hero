@@ -35,9 +35,18 @@ body {
     - Centrar contenido usando flexbox
 */
 
+.main-container {
+    width: 100vw;
+    height: 79.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
 .pokemon-container {
     width: 100vw;
-    height: 79.5%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -75,4 +84,14 @@ body {
     width: 75%;
     height: 130px;
     border: 1px solid rgba(32, 222, 111, 0.66);
+}
+
+.button {
+    background-color: white;
+    border: 1px solid rgba(32, 222, 111, 0.66);
+    font-family: monospace;
+    font-size: 15px;
+    padding: 3px;
+    margin-left: 5px;
+    cursor: pointer;
 }

@@ -44,35 +44,46 @@ const getPokemon = async (pokeID) => {
     return data
 }
 
-const createPokemon1 = async (pokeID) => {
-    const pokemon1 = await getPokemon(poke1ID)
-    const poke1Img = pokemon1.sprites.other['official-artwork']['front_default']
 
-    poke1ImgElement.src = poke1Img
+// 6 - Crear los pokemons. Haz varias pruebas a las API para examinar bien qué devuelve, esa data
+// será necesaria para popular nuestros elementos HTML
+// - Haz una llamada a la API de pokemon con el ID aleatorio de cada pokemon
+// - Toma los elementos HTML que seleccionamos más arriba y utiliza su propiendad innerHTML para añadir la info que necesitamos de la API
+
+const createPokemons = async (poke1ID, poke2ID) => {
+    const pokemon1 = await getPokemon(poke1ID)
+
+
+    poke1ImgElement.src = pokemon1.sprites.other['official-artwork']['front_default']
     poke1NameElement.innerHTML += pokemon1.name
     poke1AttackElement.innerHTML += pokemon1.stats[1]['base_stat']
     poke1DefenseElement.innerHTML += pokemon1.stats[2]['base_stat']
     poke1TypeElement.innerHTML += pokemon1.types[0].type.name
 
-    console.log(pokemon1);
-}
-
-const createPokemon2 = async (pokeID) => {
     const pokemon2 = await getPokemon(poke2ID)
-    const poke2Img = pokemon2.sprites.other['official-artwork']['front_default']
 
-    poke2ImgElement.src = poke2Img
+
+    poke2ImgElement.src = pokemon2.sprites.other['official-artwork']['front_default']
     poke2NameElement.innerHTML += pokemon2.name
     poke2AttackElement.innerHTML += pokemon2.stats[1]['base_stat']
     poke2DefenseElement.innerHTML += pokemon2.stats[2]['base_stat']
     poke2TypeElement.innerHTML += pokemon2.types[0].type.name
 
+    console.log(pokemon1);
 }
 
+// 7 - Vamos a practicar eventos en JS, no es eficiente hacer llamadas a la API cada que recargamos la página
+// Por eso, vamos a hacerlo solo cuando queramos llamar pokemons, es decir, cuando hagamos click al botón catch'em
+// - Seleccionar el elmento HTML del botón
+// - Llamar a la función createPokemons solo cuando se dé click a ese botón (lee sobre eventListeners https://www.w3schools.com/js/js_htmldom_eventlistener.asp )
+
+const catchButton = document.querySelector('.button__catch')
+
+catchButton.addEventListener('click', () => {
+    createPokemons(poke1ID, poke2ID)
+})
 
 
 
 
-createPokemon1(poke1ID)
-createPokemon2(poke2ID)
 

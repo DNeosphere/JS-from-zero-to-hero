@@ -71,15 +71,18 @@ const createPokemons = async (poke1ID, poke2ID) => {
     console.log(pokemon1);
 }
 
-// 7 - Vamos a practicar eventos en JS, no es eficiente hacer llamadas a la API cada que recargamos la página
-// Por eso, vamos a hacerlo solo cuando queramos llamar pokemons, es decir, cuando hagamos click al botón catch'em
+// 7 - Vamos a practicar eventos en JS, de esta manera vamos a poder controlar cuándo traer pokemons desde la interfaz
+// Nuestra función fetch va a traer pokemons cada que el código es ejecutado, es decir cuando la página se recarga
+// Vamos a añadir un botón que recargue la página en cada click, así podemos obtener nuevos pokemons random cada vez.
 // - Seleccionar el elmento HTML del botón
 // - Llamar a la función createPokemons solo cuando se dé click a ese botón (lee sobre eventListeners https://www.w3schools.com/js/js_htmldom_eventlistener.asp )
 
 const catchButton = document.querySelector('.button__catch')
 
+createPokemons(poke1ID, poke2ID)
+
 catchButton.addEventListener('click', () => {
-    createPokemons(poke1ID, poke2ID)
+    window.location.reload()
 })
 
 

@@ -5,16 +5,18 @@
 // - Stats de cada uno
 
 // Pokemon 1
-const poke1Img = document.querySelector(".pokemon-1__img")
-const poke1Name = document.querySelector(".pokemon-1__name")
-const poke1Power = document.querySelector(".pokemon-1__power")
-const poke1Type = document.querySelector(".pokemon-1__type")
+let poke1ImgElement = document.querySelector(".pokemon-1__img")
+let poke1NameElement = document.querySelector(".pokemon-1__name")
+let poke1AttackElement = document.querySelector(".pokemon-1__attack")
+let poke1DefenseElement = document.querySelector(".pokemon-1__defense")
+let poke1TypeElement = document.querySelector(".pokemon-1__type")
 
 // Pokemon 2
-const poke2Img = document.querySelector(".pokemon-2__img")
-const poke2Name = document.querySelector(".pokemon-2__name")
-const poke2Power = document.querySelector(".pokemon-2__power")
-const poke2Type = document.querySelector(".pokemon-2__type")
+let poke2ImgElement = document.querySelector(".pokemon-2__img")
+let poke2NameElement = document.querySelector(".pokemon-2__name")
+let poke2AttackElement = document.querySelector(".pokemon-2__attack")
+let poke2DefenseElement = document.querySelector(".pokemon-2__defense")
+let poke2TypeElement = document.querySelector(".pokemon-2__type")
 
 // 2 - Analizar la API de Pokemon :)
 // - Haz un llamado a la URL https://pokeapi.co/api/v2/pokemon/ y analiza cómo devuelve su respuesta
@@ -42,10 +44,35 @@ const getPokemon = async (pokeID) => {
     return data
 }
 
-const createPokemon = async (pokeID) => {
-    const poke1 = await getPokemon(poke1ID)
-    console.log(poke1);
+const createPokemon1 = async (pokeID) => {
+    const pokemon1 = await getPokemon(poke1ID)
+    const poke1Img = pokemon1.sprites.other['official-artwork']['front_default']
+
+    poke1ImgElement.src = poke1Img
+    poke1NameElement.innerHTML += pokemon1.name
+    poke1AttackElement.innerHTML += pokemon1.stats[1]['base_stat']
+    poke1DefenseElement.innerHTML += pokemon1.stats[2]['base_stat']
+    poke1TypeElement.innerHTML += pokemon1.types[0].type.name
+
+    console.log(pokemon1);
 }
 
-createPokemon(poke1ID)
+const createPokemon2 = async (pokeID) => {
+    const pokemon2 = await getPokemon(poke2ID)
+    const poke2Img = pokemon2.sprites.other['official-artwork']['front_default']
+
+    poke2ImgElement.src = poke2Img
+    poke2NameElement.innerHTML += pokemon2.name
+    poke2AttackElement.innerHTML += pokemon2.stats[1]['base_stat']
+    poke2DefenseElement.innerHTML += pokemon2.stats[2]['base_stat']
+    poke2TypeElement.innerHTML += pokemon2.types[0].type.name
+
+}
+
+
+
+
+
+createPokemon1(poke1ID)
+createPokemon2(poke2ID)
 

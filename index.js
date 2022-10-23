@@ -60,16 +60,21 @@ const createPokemons = async (poke1ID, poke2ID) => {
     poke1DefenseElement.innerHTML += pokemon1.stats[2]['base_stat']
     poke1TypeElement.innerHTML += pokemon1.types[0].type.name
 
-    const pokemon2 = await getPokemon(poke2ID)
 
+    const pokemon2 = await getPokemon(poke2ID)
+    
     poke2ImgElement.src = pokemon2.sprites.other['official-artwork']['front_default']
     poke2NameElement.innerHTML += pokemon2.name
     poke2AttackElement.innerHTML += pokemon2.stats[1]['base_stat']
     poke2DefenseElement.innerHTML += pokemon2.stats[2]['base_stat']
     poke2TypeElement.innerHTML += pokemon2.types[0].type.name
 
-    console.log(pokemon1);
 }
+
+const fightPokemons = async () => {
+    
+}
+
 
 // 7 - Vamos a practicar eventos en JS, de esta manera vamos a poder controlar cuándo traer pokemons desde la interfaz
 // Nuestra función fetch va a traer pokemons cada que el código es ejecutado, es decir cuando la página se recarga
@@ -78,11 +83,17 @@ const createPokemons = async (poke1ID, poke2ID) => {
 // - Llamar a la función createPokemons solo cuando se dé click a ese botón (lee sobre eventListeners https://www.w3schools.com/js/js_htmldom_eventlistener.asp )
 
 const catchButton = document.querySelector('.button__catch')
+const fightButton = document.querySelector('.button__fight')
 
 createPokemons(poke1ID, poke2ID)
 
+
 catchButton.addEventListener('click', () => {
     window.location.reload()
+})
+
+fightButton.addEventListener('click', () => {
+    fightPokemons()
 })
 
 

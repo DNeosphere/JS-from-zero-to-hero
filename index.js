@@ -51,8 +51,8 @@ const getPokemon = async (pokeID) => {
 // - Toma los elementos HTML que seleccionamos más arriba y utiliza su propiendad innerHTML para añadir la info que necesitamos de la API
 
 const createPokemons = async (poke1ID, poke2ID) => {
-    const pokemon1 = await getPokemon(poke1ID)
 
+    const pokemon1 = await getPokemon(poke1ID)
 
     poke1ImgElement.src = pokemon1.sprites.other['official-artwork']['front_default']
     poke1NameElement.innerHTML += pokemon1.name
@@ -61,7 +61,6 @@ const createPokemons = async (poke1ID, poke2ID) => {
     poke1TypeElement.innerHTML += pokemon1.types[0].type.name
 
     const pokemon2 = await getPokemon(poke2ID)
-
 
     poke2ImgElement.src = pokemon2.sprites.other['official-artwork']['front_default']
     poke2NameElement.innerHTML += pokemon2.name

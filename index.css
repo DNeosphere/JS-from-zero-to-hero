@@ -1,0 +1,72 @@
+/* Aquí vamos a definir los estilos */
+
+/* 
+    Empecemos por establecer limpiar nuestro model box.
+    Esto minimiza los errores de márgenes colapsando
+*/
+
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    font-family: monospace;
+}
+
+/*
+    Ahora los estilos para nuestro header.
+    - Width del 100% del tamaño de la pantalla
+    - Altura del 10%
+    - Centrar su contenido usando FlexBox
+    - Crea un borde cool :)
+*/
+
+.header-container, .footer-container {
+    width: 100vw;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(32, 222, 111, 0.66);
+}
+
+/*
+    Es hora de configurar nuestra secci´øn de pokemones, primero el contenedor :)
+    - Definir medidas (Ancho 100%, alto 80%)
+    - Centrar contenido usando flexbox
+*/
+
+.pokemon-container {
+    width: 100vw;
+    height: 79.5%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+/*
+    Ahora, creemos las tarjetas de pokemon :)
+*/
+.pokemon {
+    width: 350px;
+    height: 400px;
+    border: 1px solid rgba(32, 222, 111, 0.66);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.pokemon__img {
+    width: 80%;
+    height: 250px;
+    border: 1px solid rgba(32, 222, 111, 0.66);
+    align-self:center;
+
+}
+
+.pokemon__stats {
+    width: 80%;
+    height: 100px;
+    border: 1px solid rgba(32, 222, 111, 0.66);
+}

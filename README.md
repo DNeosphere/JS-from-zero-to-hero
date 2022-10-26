@@ -1,6 +1,6 @@
 # JS-from-zero-to-hero
 
-Hi/Hallo/Hello
+Hi/Hallo/Hello 🤗
 
 Wilkommen zu dem Workshop <3
 
@@ -9,7 +9,7 @@ En este workshop vamos a crear una aplicación basada en la [API de Pokemon](htt
 - CSS con BEM
 - JS Vanilla (selectores, async/await, eventListeners)
 
-## Instalación.
+## Instalación. 🧪
 
 Para instalar este repo no necesitas ninguna dependencia, basta con que clones el repositorio así
 
@@ -19,7 +19,7 @@ $ git clone https://github.com/DNeosphere/JS-from-zero-to-hero.git
 
 Esto descargará los archivos necesarios para empezar a trabajar.
 
-## Qué necesitas?
+## Qué necesitas? 😎
 
 - Un editor de código (IDE), recomendamos VSCode
 - Conexión a internet
@@ -28,5 +28,5 @@ Esto descargará los archivos necesarios para empezar a trabajar.
 
 Si tienes alguna duda, por pequeña que sea, pregunta a alguno de nuestros mentores que están aquí para ayudarte ;)
 
-Made by: GDG - WTM Medellín
+Made by: GDG - WTM Medellín 💕
 

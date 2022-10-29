@@ -58,7 +58,7 @@ const createPokemons = async (poke1ID, poke2ID) => {
   const pokemon1 = await getPokemon(poke1ID);
 
   poke1ImgElement.src =
-    pokemon1.sprites.other["official-artwork"]["front_default"];
+  pokemon1.sprites.other["official-artwork"]["front_default"];
   poke1NameElement.innerHTML += pokemon1.name;
   poke1HpElement.innerHTML = +pokemon1.stats[0]["base_stat"];
   poke1AttackElement.innerHTML += pokemon1.stats[1]["base_stat"];
@@ -70,7 +70,7 @@ const createPokemons = async (poke1ID, poke2ID) => {
   poke2ImgElement.src =
     pokemon2.sprites.other["official-artwork"]["front_default"];
   poke2NameElement.innerHTML += pokemon2.name;
-  poke2HpElement.innerHTML = +pokemon2.stats[0]["base_stat"];
+  poke2HpElement.innerHTML += pokemon2.stats[0]["base_stat"];
   poke2AttackElement.innerHTML += pokemon2.stats[1]["base_stat"];
   poke2DefenseElement.innerHTML += pokemon2.stats[2]["base_stat"];
   poke2TypeElement.innerHTML += pokemon2.types[0].type.name;
@@ -122,7 +122,7 @@ const fightPokemons = () => {
   // y describir cuánto daño recibió y cuáles son ahora sus puntos de vida
   // Si el ataque del pokemon 1 no es mayor que la denfesa del pokemon 2, significa que no logra perforarla y por lo tanto no hay daño.
   if (poke1Attack > poke2Defense) {
-    modalText.innerHTML += ` ${poke1Name} logra perforar la defensa de ${poke2Name} y recibe ${poke2DmgRecibido} puntos de daño <br> <br> Ahora el HP de ${poke2Name} es de ${poke2newHP} <br> <br>`;
+    modalText.innerHTML += ` ${poke1Name} logra perforar la defensa de ${poke2Name} y recibe ${Math.abs(poke2DmgRecibido)} puntos de daño <br> <br> Ahora el HP de ${poke2Name} es de ${poke2newHP} <br> <br>`;
   } else {
     modalText.innerHTML += ` ${poke1Name}  no logra perforar la defensa de ${poke2Name} <br> <br>`;
   }
@@ -137,7 +137,7 @@ const fightPokemons = () => {
   );
 
   if (poke2Attack > poke1Defense) {
-    modalText.innerHTML += ` ${poke2Name} logra perforar la defensa de ${poke1Name} y recibe ${poke1DmgRecibido} puntos de daño <br> <br> Ahora el HP de ${poke1Name} es de ${poke1newHP} <br> <br>`;
+    modalText.innerHTML += ` ${poke2Name} logra perforar la defensa de ${poke1Name} y recibe ${Math.abs(poke1DmgRecibido)} puntos de daño <br> <br> Ahora el HP de ${poke1Name} es de ${poke1newHP} <br> <br>`;
   } else {
     modalText.innerHTML += ` ${poke2Name}  no logra perforar la defensa de ${poke1Name} <br> <br>`;
   }
@@ -148,9 +148,9 @@ const fightPokemons = () => {
   // - En caso de que sea menor el daño de pokemon 1, significa que pokemon 2 es el gandor
   // - El último caso posible es que ambos hayan recibido el mismo daño, en ese caso sería un empate.
   if (poke2DmgRecibido < poke1DmgRecibido) {
-    modalText.innerHTML += ` ${poke1Name} Es el ganador!`;
+    modalText.innerHTML += ` ${poke1Name} es el ganador!`;
   } else if (poke1DmgRecibido < poke2DmgRecibido) {
-    modalText.innerHTML += ` ${poke2Name} Es el ganador!`;
+    modalText.innerHTML += ` ${poke2Name} es el ganador!`;
   } else {
     modalText.innerHTML += `Es un empate!`;
   }
